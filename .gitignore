@@ -1,0 +1,9 @@
+# Data (Stout's file, 26 MB) - stays local
+data/
+
+# Helper scripts and notes - stay local, not part of the submission
+python/
+writeup/
+
+# Tableau extracts
+*.hyper
