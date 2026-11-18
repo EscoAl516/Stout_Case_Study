@@ -80,7 +80,7 @@ The revenue bridge on the dashboard closes exactly (previous-year revenue + new 
 | **KPI cards** | Single numbers are read fastest as large text. Each card adds one line of context (vs the previous year, share of revenue, or "N/A (first year)") so a number never appears without meaning. |
 | **Revenue bridge (waterfall)** | Shows the full path from last year's revenue to this year's: what was added and what was lost. It is the standard way to explain a change in revenue, and it visualises the reconciliation checks. |
 | **Donut (revenue composition)** | Two parts of one whole for one year, with the total in the centre. |
-| **Line chart (revenue trend)** | Three points in time. The axis starts at $0 so the 2016 dip is not exaggerated. |
+| **Line chart (revenue trend)** | Three points in time; a line shows the direction of change, including the 2016 dip. |
 | **Stacked bars (new vs existing revenue)** | Shows each year's total and how it splits in one bar. |
 | **Diverging bars (customer movement)** | Lost customers to the left of zero and new customers to the right make the net direction of each year visible at a glance. |
 | **100% bars (retention vs attrition)** | Each bar is the previous year's customer base, so retained + lost always equals 100%. |
@@ -125,6 +125,7 @@ The same category always has the same colour on every chart, and each chart carr
 - **Load time:** the published workbook takes several seconds to open. Smaller images and fewer worksheets on the Overview (the 10 KPI cards are 10 separate sheets) would speed it up.
 - **Web-safe fonts everywhere:** Tableau Public replaces fonts it cannot serve, so a few titles render in a fallback font.
 - **A dynamic key finding** that changes with the selected year, instead of a fixed sentence.
+- **Query speed:** `metrics.yearly_summary` is a regular view, so every query re-runs all 10 metric views over 685,927 rows (a few seconds). Making it a materialized view would compute it once and make reads instant; an index on `clean.customer_revenue` was tested and did not help, because PostgreSQL already uses hash joins.
 - **Automation:** a single script that runs the SQL files in order, exports the summary tables and fails loudly if any check is non-zero.
 - **Customer-level detail:** with customer attributes (region, segment, first purchase date), the analysis could show *who* is being lost, not just how many.
 

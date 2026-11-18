@@ -53,7 +53,7 @@ All business logic, meaning anything that decides who counts as new, existing or
 | m04 Revenue Lost from Attrition | Prior-year revenue of customers with `NOT EXISTS` in the following year; last year excluded |
 | m05 / m06 Existing Revenue, current / prior | Same self-join as m03, each side summed separately |
 | m07 Total Customers | `COUNT(DISTINCT customer_email)` by year |
-| m08 Total Customers, Previous Year | `LAG` over m07's counts |
+| m08 Total Customers, Previous Year | `COUNT(DISTINCT)` per year, then `LAG` to take the previous year's count; first year excluded |
 | m09 New Customers | Count of the m02 customer set |
 | m10 Lost Customers | Count of the m04 customer set |
 | `yearly_summary` | `LEFT JOIN` of all 10 views on year (2015 gets NULLs where a metric doesn't apply) |

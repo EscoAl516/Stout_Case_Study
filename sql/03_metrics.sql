@@ -5,7 +5,7 @@
 -- is defined once and reused by 04_summary.sql (Tableau) and
 -- 05_checks.sql. Every view returns one row per year: (year, metric).
 --
--- Definitions (2015 and attrition confirmed with Lexi, 11/17):
+-- Definitions (2015 and attrition confirmed with Stout, 11/17):
 --   New       = in year Y, not in Y-1
 --   Lost      = in Y-1, not in Y (counted under Y)
 --   Existing  = in both Y-1 and Y (a matched group per year)
