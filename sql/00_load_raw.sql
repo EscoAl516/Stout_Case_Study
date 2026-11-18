@@ -11,6 +11,8 @@
 
 
 -- 1. Create the raw table (drop first so the script can be re-run).
+CREATE SCHEMA IF NOT EXISTS raw;
+
 DROP TABLE IF EXISTS raw.casestudy;
 
 CREATE TABLE raw.casestudy (
