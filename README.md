@@ -110,7 +110,7 @@ The same category always has the same colour on every chart, and each chart carr
 | `docs/ARCHITECTURE.md` | Where each calculation lives and why |
 
 ## How to reproduce
-1. Install PostgreSQL. Create the database and schema:
+1. Install PostgreSQL and create the database, then connect to it:
    ```sql
    CREATE DATABASE stout_case;
    ```
